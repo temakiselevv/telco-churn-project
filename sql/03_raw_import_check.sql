@@ -1,5 +1,5 @@
 -- =============================================
--- Script: 03_raw_check.sql
+-- Script: 03_raw_import_check.sql
 -- Project: telco-churn-project
 -- Author: Artyom K. (Junior Data Analyst)
 -- Date: 2026-03-27

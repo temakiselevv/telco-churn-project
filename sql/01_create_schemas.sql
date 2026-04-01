@@ -10,7 +10,7 @@
 CREATE SCHEMA IF NOT EXISTS raw;
 CREATE SCHEMA IF NOT EXISTS clean;
 
--- роверка статусов схем
+-- Проверка статусов схем
 SELECT 
     schema_name,
     'exists' as status

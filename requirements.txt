@@ -1,0 +1,17 @@
+pandas
+sqlalchemy
+numpy
+matplotlib
+seaborn
+plotly
+scikit-learn
+jupyter
+ipykernel
+notebook
+xgboost 
+lightgbm 
+imbalanced-learn 
+sqlalchemy 
+psycopg2-binary 
+sweetviz 
+hap

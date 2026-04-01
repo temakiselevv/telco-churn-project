@@ -36,6 +36,66 @@ FROM clean.wa_fn_usec
 GROUP BY "InternetService"
 ORDER BY churn_rate DESC;
 
+-- Отток по наличию OnlineSecurity
+SELECT 
+    "OnlineSecurity",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "OnlineSecurity"
+ORDER BY churn_rate DESC;
+
+-- Отток по наличию OnlineBackup
+SELECT 
+    "OnlineBackup",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "OnlineBackup"
+ORDER BY churn_rate DESC;
+
+-- Отток по наличию DeviceProtection
+SELECT 
+    "DeviceProtection",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "DeviceProtection"
+ORDER BY churn_rate DESC;
+
+-- Отток по наличию TechSupport
+SELECT 
+    "TechSupport",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "TechSupport"
+ORDER BY churn_rate DESC;
+
+-- Отток по наличию StreamingTV
+SELECT 
+    "StreamingTV",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "StreamingTV"
+ORDER BY churn_rate DESC;
+
+-- Отток по наличию StreamingMovies
+SELECT 
+    "StreamingMovies",
+    COUNT(*) AS total_customers,
+    COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) AS churned,
+    ROUND(100.0 * COUNT(CASE WHEN "Churn" = 'Yes' THEN 1 END) / COUNT(*), 2) AS churn_rate
+FROM clean.wa_fn_usec
+GROUP BY "StreamingMovies"
+ORDER BY churn_rate DESC;
+
 -- Отток по SeniorCitizen
 SELECT 
     "SeniorCitizen",

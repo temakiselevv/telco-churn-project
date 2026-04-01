@@ -6,6 +6,8 @@
 data/raw/
 *.parquet
 *.csv
+!data/processed/*.parquet
+!data/features/*.parquet
 
 # Python
 __pycache__/

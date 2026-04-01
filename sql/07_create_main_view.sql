@@ -12,13 +12,18 @@ CREATE OR REPLACE VIEW clean.vw_churn_analysis AS
 SELECT 
     "customerID",
     "gender",
-    "SeniorCitizen",
     "Partner",
     "Dependents",
     tenure,
     "PhoneService",
     "MultipleLines",
     "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
     "Contract",
     "PaperlessBilling",
     "PaymentMethod",
@@ -41,5 +46,7 @@ SELECT
     CASE WHEN "InternetService" = 'Fiber optic' THEN 1 ELSE 0 END AS fiber_optic_flag,
     CASE WHEN "PaymentMethod" = 'Electronic check' THEN 1 ELSE 0 END AS electronic_check_flag,
     CASE WHEN "Contract" = 'Month-to-month' THEN 1 ELSE 0 END AS month_to_month_flag,
-    CASE WHEN "SeniorCitizen" = 1 THEN 1 ELSE 0 END AS senior_citizen_flag
+    "SeniorCitizen"
 FROM clean.wa_fn_usec;
+
+select * from clean.vw_churn_analysis vca 

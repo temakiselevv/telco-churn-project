@@ -11,6 +11,12 @@ SELECT *
 FROM raw.wa_fn_usec
 WHERE NOT (wa_fn_usec IS NOT NULL);
 
+-- Проверка raw-данных на дубликаты
+SELECT "customerID", COUNT(*) AS cnt
+FROM raw.wa_fn_usec
+GROUP BY "customerID"
+HAVING COUNT(*) > 1;
+
 -- Удаление существующей таблицы clean.wa_fn_usec
 DROP TABLE IF EXISTS clean.wa_fn_usec;
 
