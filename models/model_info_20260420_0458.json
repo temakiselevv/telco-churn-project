@@ -1,0 +1,21 @@
+{
+  "date": "20260420_0458",
+  "best_params": {
+    "max_depth": 4,
+    "learning_rate": 0.028786907756684507,
+    "n_estimators": 232,
+    "subsample": 0.8903717579950168,
+    "colsample_bytree": 0.8568456410378794,
+    "min_child_weight": 3.298328704765502,
+    "gamma": 2.7911976795370395,
+    "scale_pos_weight": 2.23
+  },
+  "optimal_threshold": 0.45017191767692566,
+  "metrics": {
+    "accuracy": 0.7615330021291696,
+    "precision": 0.5345454545454545,
+    "recall": 0.786096256684492,
+    "f1_score": 0.6363636363636364,
+    "roc_auc": 0.8384406727117725
+  }
+}
