@@ -8,12 +8,11 @@ __pycache__/
 *.ipynb_checkpoints
 
 # Data
-data/raw/
+data/raw/*
+!data/raw/.gitkeep
 *.parquet
 *.csv
-!data/raw/.
 !data/processed/*.parquet
-!data/features/*.parquet
 
 # Virtual environments
 .venv/
@@ -22,7 +21,7 @@ env/
 
 # Model files 
 models/*
-#!models/.gitkeep
+!models/.gitkeep
 
 # IDE and editor files
 .idea/
