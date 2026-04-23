@@ -12,12 +12,18 @@
    - В DBeaver правой кнопкой мыши по схеме "raw" → Import Data
    - Выбрать файл: data/raw/wa_fn_usec.csv
    - Target table: wa_fn_usec
-   - Encoding: UTF-8
-   - Header row: включено (First row contains column names)
-   - Delimiter: , (запятая)
+   - Encoding: utf-8
+   - Header row: включено (top)
+   - Column delimiter: , (запятая)
+   - Set empty strings to NULL: включено ([v])
+   - Trim whitespaces: включено ([v])
    - На шаге Mapping проверить соответствие колонок
    - Запустить импорт
 */
+
+COPY raw.wa_fn_usec
+FROM '/datasets/WA_Fn-UseC_-Telco-Customer-Churn.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ',', NULL ' ', ENCODING 'UTF8');
 
 -- Общее количество загруженных строк
 SELECT COUNT(*) AS total_rows FROM raw.wa_fn_usec;

@@ -1,3 +1,8 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints
@@ -6,10 +11,42 @@
 data/raw/
 *.parquet
 *.csv
+!data/raw/.
 !data/processed/*.parquet
 !data/features/*.parquet
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Model files 
+models/*
+!models/.gitkeep
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files and backups
+*.tmp
+*.bak
+*.swp
+
+# Docker and build artifacts
+docker-compose.override.yml
+.docker/
+
+# Logs and debug output
+logs/
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore built documentation
+docs/_build/
