@@ -182,6 +182,7 @@
 Скачайте датасет по ссылке:
 https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 Распакуйте архив, создайте папку `data/raw/` и положите туда файлы
+.\venv\Scripts\Activate.ps1
 
 ## Структура проекта
 
