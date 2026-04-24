@@ -6,8 +6,6 @@
 -- Description: Базовая аналитическая витрина для проекта
 -- =============================================
 
-DROP VIEW IF EXISTS clean.vw_churn_analysis;
-
 CREATE OR REPLACE VIEW clean.vw_churn_analysis AS
 SELECT 
     "customerID",
