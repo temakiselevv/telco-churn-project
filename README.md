@@ -6,30 +6,91 @@
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?logo=docker&logoColor=white)](https://hub.docker.com/)
 [![HTML5](https://img.shields.io/badge/HTML5-%20-orange?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
+**Прогнозирование оттока клиентов телекоммуникационной компании с помощью машинного обучения**
 
-## Обзор проекта
+Проект направлен на прогнозирование оттока клиентов телеком‑компании на основе их поведения, тарифов и использования услуг.
 
-Проект направлен на прогнозирование **оттока клиентов телеком‑компании** на основе их поведения, тарифов и использования услуг.
+## Цели проекта:
 
-**Цель** — выявление клиентов с высоким риском ухода и формирование базы для ретеншн‑стратегий бизнеса.
+- Провести глубокий разведочный анализ данных оттока клиентов.
+- Построить точную модель прогнозирования оттока клиентов телеком-компании.
+- Обеспечить высокую интерпретируемость результатов с помощью SHAP.
+- Выявить основные причины оттока и предложить практические рекомендации по удержанию клиентов.
+- Создать полный, чистый и воспроизводимый ML-проект.
 
-В рамках проекта реализован полный ML‑пайплайн:
-* исследовательский анализ данных (EDA);
-* статистический анализ;
-* построение моделей машинного обучения;
-* оптимизация гиперпараметров;
-* оценка качества модели;
-* интерпретация результатов (SHAP).
+## Основные результаты
 
----
+### EDA
 
-## Бизнес‑задача
+- Обработан датасет из 7 043 клиентов телеком-компании
+- Уровень оттока (Churn) составляет 26.54% (1 869 клиентов ушли)
+- Средняя длительность пользования услугами (tenure) — 32.4 месяца
+- Средний ежемесячный платёж (MonthlyCharges) — 64.76 у.е.
+- Клиенты с помесячным контрактом (Month-to-month) составляют 55% от всех клиентов
 
-* Предсказать вероятность оттока клиента (Churn).
-* Определить ключевые факторы, влияющие на уход клиентов.
-* Помочь бизнесу снижать потери клиентов за счёт таргетированных действий.
+### Feature Engineering
 
----
+- Создано несколько новых значимых признаков
+- Наиболее полезным оказался признак avg_monthly_per_tenure_month (средний чек за месяц использования)
+- Построен комбинированный признак high_risk_combination, вошедший в топ-3 по важности
+
+### Моделирование
+
+- Модель: XGBoost Classifier
+- Оптимизация гиперпараметров проведена с помощью Bayesian Optimization
+- Подобран оптимальный порог вероятности для максимизации F1-score: 0.4632
+- ROC-AUC на тестовом наборе: 0.8549
+- F1-score: 0.6508 (после подбора порога)
+- Recall: 0.8021
+- Precision: 0.5474
+
+### Интерпретируемость (SHAP-анализ)
+**Топ-10 наиболее важных признаков:**
+
+Contract — 0.6658
+avg_monthly_per_tenure_month — 0.4620
+high_risk_combination — 0.2576
+OnlineSecurity — 0.2114
+MonthlyCharges — 0.1736
+TechSupport — 0.1525
+PaymentMethod — 0.1333
+tenure — 0.1236
+PaperlessBilling — 0.0896
+month_to_month_flag — 0.0863
+
+## Структура проекта
+
+```text
+telco-churn-project/
+├── dashboards/               # визуализации/отчёты
+│   ├── eda/  
+│   ├── feature_engineering/               
+│   └── modeling/
+├── data/
+│   ├── raw/                  # исходные данные (загружаются вручную)
+│   └── processed/            # обработанные данные
+├── models/                   # сохранённые модели
+├── notebooks/                # Jupyter‑ноутбуки
+│   ├── 01_data_loading.ipynb  
+│   ├── 02_eda.ipynb           
+│   ├── 03_feature_engineering.ipynb        
+│   └── 04_churn_modeling.ipynb         
+├── sql/                      # sql-файлы (предобработка данных, базовый eda и feature_engineering)
+│   ├── 01_create_schemas.sql   
+│   ├── 02_raw_create_table.sql 
+│   ├── 03_raw_import_check.sql
+│   ├── 04_clean_data.sql 
+│   ├── 05_eda_basic_statistics.sql          
+│   ├── 06_churn_by_segments.sql      
+│   └── 07_create_main_view.sql
+├── utils/                  
+│   └── visualization.py      
+├── .gitattributes
+├── .gitignore
+├── docker-compose.yml
+├── requirements.txt        
+└── README.md
+```
 
 ## Данные
 
@@ -172,39 +233,6 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 * `joblib` — сохранение модели;
 * `json` — сохранение метрик и параметров.
 
----
 
-## Структура проекта
-
-```text
-telco-churn-project/
-├── dashboards/               # визуализации/отчёты
-│   ├── eda/  
-│   ├── feature_engineering/               
-│   └── modeling/
-├── data/
-│   ├── raw/                  # исходные данные (загружаются вручную)
-│   └── processed/            # обработанные данные
-├── models/                   # сохранённые модели
-├── notebooks/                # Jupyter‑ноутбуки
-│   ├── 01_data_loading.ipynb  
-│   ├── 02_eda.ipynb           
-│   ├── 03_feature_engineering.ipynb        
-│   └── 04_churn_modeling.ipynb         
-├── sql/                      # sql-файлы (предобработка данных, базовый eda и feature_engineering)
-│   ├── 01_create_schemas.sql   
-│   ├── 02_raw_create_table.sql 
-│   ├── 03_raw_import_check.sql
-│   ├── 04_clean_data.sql 
-│   ├── 05_eda_basic_statistics.sql          
-│   ├── 06_churn_by_segments.sql      
-│   └── 07_create_main_view.sql
-├── utils/                  
-│   └── visualization.py      
-├── .gitattributes
-├── .gitignore
-├── docker-compose.yml
-├── requirements.txt        
-└── README.md             
 ```
 ## Использование
