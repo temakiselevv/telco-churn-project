@@ -51,7 +51,7 @@
 - **Оптимизация**: Bayesian Optimization (`bayes_opt`)
 - **Интерпретируемость**: SHAP (TreeExplainer)
 - **Визуализация**: Plotly Express, Matplotlib
-- **Дополнительно**:
+- **Дополнительно**:  
   SQLAlchemy — подключение Python к PostgreSQL  
   JSON, Joblib — сохранение моделей  
   Docker & docker-compose — контейнеризация и воспроизводимость  
@@ -76,12 +76,12 @@ telco-churn-project/
 
 ## 🚀 Как запустить проект
 
-Вариант 1: С помощью Docker Compose (рекомендуется)
-# 1. Клонируйте репозиторий
-git clone https://github.com/ваш_юзер/telco-churn-project.git
+**Рекомендуемый способ: Через Docker Compose**
+1. Клонируйте репозиторий
+git clone https://github.com/temakiselevv/telco-churn-project.git
 cd telco-churn-project
 
-# 2. Скачайте датасет и положите файл в нужную папку
+2. Скачайте датасет и положите файл в `data/raw`
 #    https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 #    Файл: WA_Fn-UseC_-Telco-Customer-Churn.csv → data/raw/
 
