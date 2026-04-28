@@ -157,8 +157,8 @@ pip install -r requirements.txt
 Открывайте ноутбуки или презентацию — там вся ценность.  
 ⭐ Если проект был полезен — ставьте звезду!**  
 
-*Проект создан как демонстрация сильных навыков в data analysis, end-to-end ML, feature engineering и интерпретируемом машинном обучении.*
-
 ## Автор  
 Киселев Артём — Junior Data Analyst  
 GitHub: Tema Kiselev (temakiselevv) | Telegram: @tema_kiselev
+
+*Проект создан как демонстрация сильных навыков в data analysis, end-to-end ML, feature engineering и интерпретируемом машинном обучении.*
