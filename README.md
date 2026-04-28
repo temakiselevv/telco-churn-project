@@ -106,10 +106,12 @@ Docker автоматически:
 
 **4. Откройте Jupyter Notebook или вашу IDE**
 **5. Активируйте виртуальное окружение**
-```Linux / macOS
+```
+# Linux/macOS
 source .venv/bin/activate
 ```
-```Windows
+```
+# Windows
 .\venv\Scripts\activate
 ```
 **6. Установите необходиые зависимости:**
