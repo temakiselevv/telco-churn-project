@@ -78,7 +78,7 @@ telco-churn-project/
 
 **Рекомендуемый способ: Через Docker Compose**
 1. Клонируйте репозиторий  
-``` console
+```console
 git clone https://github.com/temakiselevv/telco-churn-project.git  
 cd telco-churn-project
 ```
@@ -88,25 +88,44 @@ cd telco-churn-project
 `data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`  
 
 3. Запустите Docker Compose  
+```console
 docker-compose up -d
+```
+Docker автоматически:  
+- Запустит PostgreSQL (порт 5433 на хосте)  
+- Смонтирует папку sql/ в /docker-entrypoint-initdb.d  
+- Автоматически выполнит все SQL-файлы при первом запуске контейнера  
 
-4. Откройте Jupyter Notebook по ссылке, которая появится в консоли
-После запуска вы можете:
+> После старта docker-compose up -d выполните следующие шаги:  
+> Проверьте выполнение SQL-скриптов
+> При первом запуске PostgreSQL автоматически выполнит все файлы из папки sql/ в алфавитном порядке.
+> Рекомендуется проверить логи контейнера, чтобы убедиться, что все скрипты отработали успешно:
+> ```console
+> docker logs telco_postgres
+> ```
 
-Выполнить SQL-скрипты из папки sql/
-Запустить Jupyter-ноутбуки по порядку
-
-Вариант 2: Локально (без Docker)
-# 1. Создайте и активируйте виртуальное окружение
-python -m venv venv
-source venv/bin/activate    # Windows: venv\Scripts\activate
-
-# 2. Установите зависимости
+4. Откройте Jupyter Notebook или вашу IDE
+  
+5. Установите необходиые зависимости:
+```console
 pip install -r requirements.txt
+```
 
-# 3. Положите датасет в data/raw/
-# 4. Запустите Jupyter
-jupyter notebook
+6. Запустите Jupyter Notebooks последовательно:  
+`notebooks/01_data_loading.ipynb`
+`notebooks/02_eda.ipynb`
+`notebooks/03_feature_engineering.ipynb`
+`notebooks/04_churn_modeling.ipynb`
+
+> Важно: В ноутбуках используется следующее подключение к базе:
+> - Host: db (имя сервиса в docker-compose)
+> - Port: 5432
+> - Database: telco_churn
+> - User: postgres
+> - Password: 123
+
+> Примечание:
+> При первом запуске SQL-скрипты выполнятся автоматически благодаря монтированию папки ./sql в /docker-entrypoint-initdb.d. При последующих запусках они выполняться не будут (это стандартное поведение PostgreSQL). Если нужно перезапустить инициализацию — удалите volume с помощью `docker-compose down -v` и запустите заново: `docker-compose up -d`
 
 ## 📈 Методология
 
