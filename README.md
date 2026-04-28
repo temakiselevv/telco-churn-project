@@ -104,7 +104,7 @@ Docker автоматически:
 > docker logs telco_postgres
 > ```
 
-**4. Откройте Jupyter Notebook или вашу IDE**
+**4. Откройте Jupyter Notebook или вашу IDE**   
 **5. Создайте и активируйте виртуальное окружение**
 ```
 py -m venv venv
