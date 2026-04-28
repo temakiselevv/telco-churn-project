@@ -1,6 +1,5 @@
 # Прогнозирование оттока клиентов (Telco Churn)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 [![SQL](https://img.shields.io/badge/SQL-%20-blue?logo=postgresql)](https://www.postgresql.org/docs/current/tutorial.html)
@@ -179,21 +178,33 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 
 ```text
 telco-churn-project/
+├── dashboards/               # визуализации/отчёты
+│   ├── eda/  
+│   ├── feature_engineering/               
+│   └── modeling/
 ├── data/
-│   ├── raw/                  # исходные данные (загружаются отдельно)
+│   ├── raw/                  # исходные данные (загружаются вручную)
 │   └── processed/            # обработанные данные
-├── models/                 # сохранённые модели (.joblib)
-├── notebooks/              # Jupyter‑ноутбуки с анализом
-├── results/               # результаты работы (метрики, графики)
-│   ├── metrics/
-│   └── shap_plots/
-├── src/                  # исходный код Python
-│   ├── data_processing.py
-│   ├── features.py
-│   ├── modeling.py
-│   └── utils.py
-├── requirements.txt        # зависимости
-├── README.md             # этот файл
-└── LICENSE               # лицензия MIT
+├── models/                   # сохранённые модели
+├── notebooks/                # Jupyter‑ноутбуки
+│   ├── 01_data_loading.ipynb  
+│   ├── 02_eda.ipynb           
+│   ├── 03_feature_engineering.ipynb        
+│   └── 04_churn_modeling.ipynb         
+├── sql/                      # sql-файлы (предобработка данных, базовый eda и feature_engineering)
+│   ├── 01_create_schemas.sql   
+│   ├── 02_raw_create_table.sql 
+│   ├── 03_raw_import_check.sql
+│   ├── 04_clean_data.sql 
+│   ├── 05_eda_basic_statistics.sql          
+│   ├── 06_churn_by_segments.sql      
+│   └── 07_create_main_view.sql
+├── utils/                  
+│   └── visualization.py      
+├── .gitattributes
+├── .gitignore
+├── docker-compose.yml
+├── requirements.txt        
+└── README.md             
 ```
 ## Использование
