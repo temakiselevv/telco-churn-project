@@ -45,15 +45,6 @@
 
 ## 🛠 Технологический стек
 
-- **Язык и анализ**: Python 3.8+, Pandas, NumPy, SciPy
-- **Моделирование**: XGBoost, Scikit-learn
-- **Оптимизация**: Bayesian Optimization (`bayes_opt`)
-- **Интерпретируемость**: SHAP (TreeExplainer)
-- **Визуализация**: Plotly Express, Matplotlib
-- **База данных**: PostgreSQL + SQLAlchemy
-- **Деплой и воспроизводимость**: Docker, docker-compose
-- **Другое**: Joblib, JSON
-
 - **База данных и SQL-аналитика**: PostgreSQL, SQL  
 - **Python и Machine Learning**: Python 3.8+, Pandas, NumPy, SciPy
 - **Моделирование**: XGBoost, Scikit-learn
@@ -61,10 +52,10 @@
 - **Интерпретируемость**: SHAP (TreeExplainer)
 - **Визуализация**: Plotly Express, Matplotlib
 - **Дополнительно**:
--- SQLAlchemy — подключение Python к PostgreSQL
--- Joblib — сохранение моделей
--- Docker & docker-compose — контейнеризация и воспроизводимость
--- Jupyter Notebook
+  SQLAlchemy — подключение Python к PostgreSQL  
+  JSON, Joblib — сохранение моделей  
+  Docker & docker-compose — контейнеризация и воспроизводимость  
+  Jupyter Notebook  
 ---
 
 ## 📁 Структура проекта
