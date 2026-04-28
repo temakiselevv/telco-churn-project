@@ -134,10 +134,10 @@ pip install -r requirements.txt
 * Предобработка данных (SQL + Pandas)
 * Разведочный анализ (EDA) + статистические тесты
 * Feature Engineering (включая сильные комбинированные признаки)
+* Валидация: StratifiedKFold + Train/Test split
 * Моделирование → XGBoost с Bayesian Optimization
 * Тюнинг порога для максимизации F1-score
 * Интерпретация с помощью SHAP (глобальная + локальная)
-* Валидация: StratifiedKFold + Train/Test split
 
 📌 Ключевые особенности проекта
 
