@@ -118,11 +118,13 @@ pip install -r requirements.txt
 `notebooks/04_churn_modeling.ipynb`  
 
 > Важно: В ноутбуках используется следующее подключение к базе:
+> ```
 > - Host: db (имя сервиса в docker-compose)
 > - Port: 5432
 > - Database: telco_churn
 > - User: postgres
 > - Password: 123
+> ```
 
 > Примечание:
 > При первом запуске SQL-скрипты выполнятся автоматически благодаря монтированию папки `/sql` в `/docker-entrypoint-initdb.d`. При последующих запусках они выполняться не будут (это стандартное поведение PostgreSQL). Если нужно перезапустить инициализацию — удалите volume с помощью `docker-compose down -v` и запустите заново: `docker-compose up -d`
