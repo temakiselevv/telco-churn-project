@@ -1,228 +1,138 @@
-# Telco Customer Churn Analysis & Prediction
+# Telco Customer Churn Prediction
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
-[![SQL](https://img.shields.io/badge/SQL-%20-blue?logo=postgresql)](https://www.postgresql.org/docs/current/tutorial.html)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?logo=docker&logoColor=white)](https://hub.docker.com/)
-[![HTML5](https://img.shields.io/badge/HTML5-%20-orange?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Used-success)](https://xgboost.readthedocs.io/)
+[![SHAP](https://img.shields.io/badge/SHAP-Interpretable-blue)](https://shap.readthedocs.io/)
 
-**Прогнозирование оттока клиентов телекоммуникационной компании с помощью машинного обучения.**  
-Проект направлен на прогнозирование оттока клиентов телеком‑компании на основе их поведения, тарифов и использования услуг.
+**Прогнозирование оттока клиентов телекоммуникационной компании с помощью машинного обучения и интерпретируемого AI.**
 
-## 🎯 Цели проекта
+---
 
-- Провести глубокий разведочный анализ данных оттока клиентов.
-- Построить точную модель прогнозирования оттока клиентов телеком-компании.
-- Обеспечить высокую интерпретируемость результатов с помощью SHAP.
-- Выявить основные причины оттока и предложить практические рекомендации по удержанию клиентов.
-- Создать полный, чистый и воспроизводимый ML-проект.
+## 🎯 О проекте
 
-## 🏆 Основные результаты
+Этот проект представляет собой **полноценный end-to-end ML-кейс**: от разведочного анализа данных до построения высокоинтерпретируемой модели прогнозирования оттока клиентов телеком-оператора.
 
-### EDA
+**Основная цель** — не только построить точную модель, но и понять *почему* клиенты уходят, чтобы предложить конкретные рекомендации по удержанию.
 
-- Обработан датасет из 7 043 клиентов телеком-компании
-- Уровень оттока (Churn) составляет 26.54% (1 869 клиентов ушли)
-- Средняя длительность пользования услугами (tenure) — 32.4 месяца
-- Средний ежемесячный платёж (MonthlyCharges) — 64.76 у.е.
-- Клиенты с помесячным контрактом (Month-to-month) составляют 55% от всех клиентов
+### Ключевые результаты
 
-### Feature Engineering
+- **ROC-AUC** на тесте: **0.8549**
+- **F1-score**: **0.6508** (после тюнинга порога вероятности)
+- **Recall**: **0.8021** — модель хорошо ловит уходящих клиентов
+- Лучшая модель: **XGBoost Classifier** + Bayesian Optimization
+- Глубокий **SHAP-анализ** для интерпретируемости
 
-- Создано несколько новых значимых признаков
-- Наиболее полезным оказался признак avg_monthly_per_tenure_month (средний чек за месяц использования)
-- Построен комбинированный признак high_risk_combination, вошедший в топ-3 по важности
+**Топ-3 самых важных признака (по SHAP):**
+1. **Contract** (тип контракта)
+2. **avg_monthly_per_tenure_month** (средний чек за месяц лояльности)
+3. **high_risk_combination** (комбинированный риск-фактор)
 
-### Моделирование
+---
 
-- Модель: XGBoost Classifier
-- Оптимизация гиперпараметров проведена с помощью Bayesian Optimization
-- Подобран оптимальный порог вероятности для максимизации F1-score: 0.4632
-- ROC-AUC на тестовом наборе: 0.8549
-- F1-score: 0.6508 (после подбора порога)
-- Recall: 0.8021
-- Precision: 0.5474
+## 📊 Основные insights из EDA
 
-### Интерпретируемость (SHAP-анализ)
-Топ-10 наиболее важных признаков:
+- Уровень оттока — **26.54%** (1869 клиентов из 7043)
+- Более половины клиентов (55%) используют помесячный контракт — именно они уходят чаще всего
+- Средний срок пользования услугами — 32.4 месяца
+- Клиенты с высокими ежемесячными платежами и отсутствием услуг безопасности/поддержки — в зоне повышенного риска
 
-1. Contract — 0.6658  
-2. avg_monthly_per_tenure_month — 0.4620  
-3. high_risk_combination — 0.2576  
-4. OnlineSecurity — 0.2114  
-5. MonthlyCharges — 0.1736  
-6. TechSupport — 0.1525  
-7. PaymentMethod — 0.1333  
-8. tenure — 0.1236  
-9. PaperlessBilling — 0.0896  
-10. month_to_month_flag — 0.0863  
-
-## 📁 Структура проекта
-
-```text
-telco-churn-project/
-├── dashboards/               # визуализации/отчёты
-├── data/
-│   ├── raw/                  # исходные данные (загружаются вручную)
-│   └── processed/            # обработанные данные
-├── models/                   # сохранённые модели
-├── notebooks/                # Jupyter‑ноутбуки
-│   ├── 01_data_loading.ipynb  
-│   ├── 02_eda.ipynb           
-│   ├── 03_feature_engineering.ipynb        
-│   └── 04_churn_modeling.ipynb         
-├── sql/                      # sql-файлы (предобработка данных, базовый eda и feature_engineering)
-│   ├── 01_create_schemas.sql   
-│   ├── 02_raw_create_table.sql 
-│   ├── 03_raw_import_check.sql
-│   ├── 04_clean_data.sql 
-│   ├── 05_eda_basic_statistics.sql          
-│   ├── 06_churn_by_segments.sql      
-│   └── 07_create_main_view.sql
-├── utils/                  
-│   └── visualization.py      
-├── .gitattributes
-├── .gitignore
-├── docker-compose.yml
-├── Telco Customer Churn Analysis presentation.pdf
-├── requirements.txt        
-└── README.md
-```
-
-## 📊 Данные
-
-Используется набор данных телеком‑компании, включающий:
-* демографические данные клиентов;
-* тип контракта;
-* тарифные планы;
-* ежемесячные и суммарные платежи;
-* подключённые услуги.
-
-**Целевая переменная:**
-* `Churn` (1 — клиент ушёл, 0 — остался).
-
-**Источник данных:**
-https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
-
-> **Примечание:** сырые данные не включены в репозиторий из‑за объёма.
+**Бизнес-выводы и рекомендации** находятся в презентации (`Telco Customer Churn Analysis presentation.pdf`).
 
 ---
 
 ## 🛠 Технологический стек
 
-### Библиотеки Python
-* Pandas, NumPy;
-* Scikit‑learn;
-* XGBoost;
-* SciPy (`scipy.stats`).
-
-### Визуализация
-* Plotly Express;
-* Matplotlib.
-
-### Оптимизация и интерпретация
-* Bayesian Optimization (`bayes_opt`);
-* SHAP (TreeExplainer).
-
-### Утилиты
-* SQLAlchemy;
-* Joblib;
-* JSON, OS, datetime.
+- **Язык и анализ**: Python 3.8+, Pandas, NumPy, SciPy
+- **Моделирование**: XGBoost, Scikit-learn
+- **Оптимизация**: Bayesian Optimization (`bayes_opt`)
+- **Интерпретируемость**: SHAP (TreeExplainer)
+- **Визуализация**: Plotly Express, Matplotlib
+- **База данных**: PostgreSQL + SQLAlchemy
+- **Деплой и воспроизводимость**: Docker, docker-compose
+- **Другое**: Joblib, JSON
 
 ---
 
-## Методология
+## 📁 Структура проекта
 
-### 1. Предобработка данных
-* обработка пропусков
-* обработка дупликатов
-* присвоение типов данных полям
-  
-### 1. Исследовательский анализ данных (EDA)
-* одномерный анализ (распределения, выбросы);
-* двумерный анализ (зависимость признаков от churn);
-* многомерный анализ (корреляции и взаимодействия признаков).
+```text
+telco-churn-project/
+├── data/                  # raw + processed данные
+├── notebooks/             # 01_data_loading → 04_churn_modeling
+├── sql/                   # Предобработка, EDA и витрины в PostgreSQL
+├── dashboards/            # Интерактивные отчёты и визуализации
+├── models/                # Сохранённые модели (joblib)
+├── utils/                 # Вспомогательные скрипты
+├── Telco Customer Churn Analysis presentation.pdf
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+```
 
-### 2. Статистический анализ
-* t‑test (сравнение групп churn / non‑churn);
-* Point‑Biserial корреляция (числовые признаки vs целевая переменная).
+## 🚀 Как запустить проект
 
-### 3. Предобработка данных перед моделированием
-* удаление целевой и зависимых переменных;
-* кодирование категориальных признаков;
-* подготовка новых признаков для модели.
+Вариант 1: С помощью Docker Compose (рекомендуется)
+# 1. Клонируйте репозиторий
+git clone https://github.com/ваш_юзер/telco-churn-project.git
+cd telco-churn-project
 
-### 4. Построение моделей
-**Основная модель:** XGBoost Classifier.
+# 2. Скачайте датасет и положите файл в нужную папку
+#    https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
+#    Файл: WA_Fn-UseC_-Telco-Customer-Churn.csv → data/raw/
 
-### 5. Подбор гиперпараметров
-Используется **Bayesian Optimization** для настройки XGBoost:
-* глубина деревьев;
-* learning rate;
-* количество деревьев;
-* subsample;
-* colsample_bytree;
-* gamma;
-* баланс классов.
+# 3. Запустите все сервисы (PostgreSQL + Jupyter)
+docker-compose up -d
 
-### 6. Стратегия валидации
-* Train‑test split (стратифицированный);
-* StratifiedKFold (5 фолдов).
+# 4. Откройте Jupyter Notebook по ссылке, которая появится в консоли
+После запуска вы можете:
 
-### 7. Оценка качества модели
-**Метрики:**
-* Accuracy;
-* Precision;
-* Recall;
-* F1‑score;
-* ROC‑AUC.
+Выполнить SQL-скрипты из папки sql/
+Запустить Jupyter-ноутбуки по порядку
 
-**Дополнительно:**
-* Confusion Matrix;
-* подбор оптимального порога (threshold tuning).
+Вариант 2: Локально (без Docker)
+# 1. Создайте и активируйте виртуальное окружение
+python -m venv venv
+source venv/bin/activate    # Windows: venv\Scripts\activate
 
-### 8. Интерпретация модели
-**SHAP TreeExplainer:**
-* глобальная важность признаков;
-* локальные объяснения предсказаний;
-* влияние признаков на риск оттока.
+# 2. Установите зависимости
+pip install -r requirements.txt
 
----
+# 3. Положите датасет в data/raw/
+# 4. Запустите Jupyter
+jupyter notebook
 
-## Ключевые выводы
+## 📈 Методология
 
-* Краткосрочные контракты значительно увеличивают вероятность оттока.
-* Высокие ежемесячные платежи повышают риск ухода клиента.
-* Чем дольше клиент пользуется услугами, тем ниже вероятность churn.
-* Способ оплаты и набор услуг также влияют на удержание.
+* Предобработка данных (SQL + Pandas)
+* Разведочный анализ (EDA) + статистические тесты
+* Feature Engineering (включая сильные комбинированные признаки)
+* Моделирование → XGBoost с Bayesian Optimization
+* Тюнинг порога для максимизации F1-score
+* Интерпретация с помощью SHAP (глобальная + локальная)
+* Валидация: StratifiedKFold + Train/Test split
 
----
+📌 Ключевые особенности проекта
 
-## Pipeline проекта
+* Полная воспроизводимость через Docker
+* Комбинация SQL и Python пайплайна
+* Высокая интерпретируемость модели (SHAP)
+* Бизнес-ориентированные insights и рекомендации
+* Чистая, модульная структура проекта
 
-1. Загрузка данных (Pandas, SQLAlchemy).
-2. Предобработка данных.
-3. EDA + статистический анализ.
-4. Train‑test split.
-5. Обучение моделей.
-6. Bayesian Optimization (XGBoost).
-7. StratifiedKFold validation.
-8. Финальное обучение модели.
-9. Threshold tuning.
-10. Оценка качества (Confusion Matrix, ROC‑AUC).
-11. Интерпретация (SHAP).
-12. Сохранение модели (Joblib).
+## Дополнительные материалы
 
----
+Презентация — Telco Customer Churn Analysis presentation.pdf
+Jupyter notebooks — подробный разбор каждого этапа
+SQL-скрипты — создание схем, очистка и аналитические витрины
 
-## Сохранение модели
+Хотите увидеть проект в действии?
+Открывайте ноутбуки или презентацию — там вся ценность.
+⭐ Если проект был полезен — ставьте звезду!
 
-* `joblib` — сохранение модели;
-* `json` — сохранение метрик и параметров.
+*Проект создан как демонстрация сильных навыков в end-to-end ML, feature engineering и интерпретируемом машинном обучении.*
 
-## Как запустить проект
-
-Скачайте датасет по ссылке:
-https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
-
-Положите csv-файл в папку `data/raw/`
+## Автор  
+Киселев Артём — Junior Data Analyst  
+GitHub: Tema Kiselev (temakiselevv) | Telegram: @tema_kiselev
