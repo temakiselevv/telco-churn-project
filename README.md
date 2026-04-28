@@ -63,9 +63,6 @@ month_to_month_flag — 0.0863
 ```text
 telco-churn-project/
 ├── dashboards/               # визуализации/отчёты
-│   ├── eda/  
-│   ├── feature_engineering/               
-│   └── modeling/
 ├── data/
 │   ├── raw/                  # исходные данные (загружаются вручную)
 │   └── processed/            # обработанные данные
@@ -88,6 +85,7 @@ telco-churn-project/
 ├── .gitattributes
 ├── .gitignore
 ├── docker-compose.yml
+├── Telco Customer Churn Analysis presentation.pdf
 ├── requirements.txt        
 └── README.md
 ```
@@ -105,10 +103,7 @@ telco-churn-project/
 * `Churn` (1 — клиент ушёл, 0 — остался).
 
 **Источник данных:**
-Скачайте датасет по ссылке:
 https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
-
-Распакуйте архив и положите файлы в папку `data/raw/`.
 
 > **Примечание:** сырые данные не включены в репозиторий из‑за объёма.
 
@@ -233,6 +228,9 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 * `joblib` — сохранение модели;
 * `json` — сохранение метрик и параметров.
 
+## Как запустить проект
 
-```
-## Использование
+Скачайте датасет по ссылке:
+https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
+
+Положите csv-файл в папку `data/raw/`
