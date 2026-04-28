@@ -45,18 +45,18 @@
 - Precision: 0.5474
 
 ### Интерпретируемость (SHAP-анализ)
-**Топ-10 наиболее важных признаков:**
+Топ-10 наиболее важных признаков:
 
-Contract — 0.6658  
-avg_monthly_per_tenure_month — 0.4620  
-high_risk_combination — 0.2576  
-OnlineSecurity — 0.2114  
-MonthlyCharges — 0.1736  
-TechSupport — 0.1525  
-PaymentMethod — 0.1333  
-tenure — 0.1236  
-PaperlessBilling — 0.0896  
-month_to_month_flag — 0.0863  
+1. Contract — 0.6658  
+2. avg_monthly_per_tenure_month — 0.4620  
+3. high_risk_combination — 0.2576  
+4. OnlineSecurity — 0.2114  
+5. MonthlyCharges — 0.1736  
+6. TechSupport — 0.1525  
+7. PaymentMethod — 0.1333  
+8. tenure — 0.1236  
+9. PaperlessBilling — 0.0896  
+10. month_to_month_flag — 0.0863  
 
 ## 📁 Структура проекта
 
