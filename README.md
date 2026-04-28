@@ -96,9 +96,9 @@ Docker автоматически:
 - Смонтирует папку sql/ в /docker-entrypoint-initdb.d  
 - Автоматически выполнит все SQL-файлы при первом запуске контейнера  
 
-> После старта docker-compose up -d выполните следующие шаги:  
+> После старта `docker-compose up -d` выполните следующие шаги:  
 > Проверьте выполнение SQL-скриптов
-> При первом запуске PostgreSQL автоматически выполнит все файлы из папки sql/ в алфавитном порядке.
+> При первом запуске PostgreSQL автоматически выполнит все файлы из папки `sql/` в алфавитном порядке.
 > Рекомендуется проверить логи контейнера, чтобы убедиться, что все скрипты отработали успешно:
 > ```console
 > docker logs telco_postgres
@@ -112,10 +112,10 @@ pip install -r requirements.txt
 ```
 
 6. Запустите Jupyter Notebooks последовательно:  
-`notebooks/01_data_loading.ipynb`
-`notebooks/02_eda.ipynb`
-`notebooks/03_feature_engineering.ipynb`
-`notebooks/04_churn_modeling.ipynb`
+`notebooks/01_data_loading.ipynb`  
+`notebooks/02_eda.ipynb`  
+`notebooks/03_feature_engineering.ipynb`  
+`notebooks/04_churn_modeling.ipynb`  
 
 > Важно: В ноутбуках используется следующее подключение к базе:
 > - Host: db (имя сервиса в docker-compose)
@@ -125,7 +125,7 @@ pip install -r requirements.txt
 > - Password: 123
 
 > Примечание:
-> При первом запуске SQL-скрипты выполнятся автоматически благодаря монтированию папки ./sql в /docker-entrypoint-initdb.d. При последующих запусках они выполняться не будут (это стандартное поведение PostgreSQL). Если нужно перезапустить инициализацию — удалите volume с помощью `docker-compose down -v` и запустите заново: `docker-compose up -d`
+> При первом запуске SQL-скрипты выполнятся автоматически благодаря монтированию папки `/sql` в `/docker-entrypoint-initdb.d`. При последующих запусках они выполняться не будут (это стандартное поведение PostgreSQL). Если нужно перезапустить инициализацию — удалите volume с помощью `docker-compose down -v` и запустите заново: `docker-compose up -d`
 
 ## 📈 Методология
 
