@@ -76,18 +76,18 @@ telco-churn-project/
 
 ## 🚀 Как запустить проект
 
-**Рекомендуемый способ: Через Docker Compose**
-1. Клонируйте репозиторий  
+### **Рекомендуемый способ: Через Docker Compose**
+**1. Клонируйте репозиторий**  
 ```console
 git clone https://github.com/temakiselevv/telco-churn-project.git  
 cd telco-churn-project
 ```
-2. Скачайте датасет и положите файл в `data/raw`  
+**2. Скачайте датасет и положите файл в `data/raw`**  
 Ссылка: https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data  
 Файл должен находиться по пути:  
 `data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv`  
 
-3. Запустите Docker Compose  
+**3. Запустите docker-compose**  
 ```console
 docker-compose up -d
 ```
@@ -104,14 +104,14 @@ Docker автоматически:
 > docker logs telco_postgres
 > ```
 
-4. Откройте Jupyter Notebook или вашу IDE
+**4. Откройте Jupyter Notebook или вашу IDE**
   
-5. Установите необходиые зависимости:
+**5. Установите необходиые зависимости:**
 ```console
 pip install -r requirements.txt
 ```
 
-6. Запустите Jupyter Notebooks последовательно:  
+**6. Запустите Jupyter Notebooks последовательно:**  
 `notebooks/01_data_loading.ipynb`  
 `notebooks/02_eda.ipynb`  
 `notebooks/03_feature_engineering.ipynb`  
