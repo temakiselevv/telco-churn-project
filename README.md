@@ -1,5 +1,9 @@
 # Прогнозирование оттока клиентов (Telco Churn)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
+
 ## Обзор проекта
 
 Проект направлен на прогнозирование **оттока клиентов телеком-компании** на основе их поведения, тарифов и использования услуг.
