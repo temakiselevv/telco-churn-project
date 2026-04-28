@@ -58,7 +58,7 @@ tenure — 0.1236
 PaperlessBilling — 0.0896  
 month_to_month_flag — 0.0863  
 
-## Структура проекта
+## 📁 Структура проекта
 
 ```text
 telco-churn-project/
@@ -109,7 +109,7 @@ https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data
 
 ---
 
-## Используемые технологии
+## 🛠 Технологический стек
 
 ### Библиотеки Python
 * Pandas, NumPy;
