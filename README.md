@@ -105,13 +105,19 @@ Docker автоматически:
 > ```
 
 **4. Откройте Jupyter Notebook или вашу IDE**
-  
-**5. Установите необходиые зависимости:**
+**5. Активируйте виртуальное окружение**
+```Linux / macOS
+source .venv/bin/activate
+```
+```Windows
+.\venv\Scripts\activate
+```
+**6. Установите необходиые зависимости:**
 ```console
 pip install -r requirements.txt
 ```
 
-**6. Запустите Jupyter Notebooks последовательно:**  
+**7. Запустите Jupyter Notebooks последовательно:**  
 `notebooks/01_data_loading.ipynb`  
 `notebooks/02_eda.ipynb`  
 `notebooks/03_feature_engineering.ipynb`  
