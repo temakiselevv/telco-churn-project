@@ -3,9 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
-[![SQL](https://img.shields.io/badge/SQL-blue.svg)](https://www.w3schools.com/sql/)
+[![SQL](https://img.shields.io/badge/SQL-%20-blue?logo=postgresql)](https://www.postgresql.org/docs/current/tutorial.html)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?logo=docker&logoColor=white)](https://hub.docker.com/)
-[![HTML](https://img.shields.io/badge/HTML-orange.svg)](https://html.spec.whatwg.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-%20-orange?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
 
 ## Обзор проекта
 
