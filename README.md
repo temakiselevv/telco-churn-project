@@ -104,15 +104,19 @@ Docker автоматически:
 > docker logs telco_postgres
 > ```
 
-**4. Откройте Jupyter Notebook или вашу IDE**
-**5. Активируйте виртуальное окружение**
+**4. Откройте Jupyter Notebook или вашу IDE**   
+
+**5. Создайте и активируйте виртуальное окружение**
+```console
+py -m venv venv
 ```
+```console
 # Linux/macOS
-source .venv/bin/activate
+source venv/bin/activate
 ```
-```
+```console
 # Windows
-.\venv\Scripts\activate
+venv\Scripts\activate
 ```
 **6. Установите необходиые зависимости:**
 ```console
