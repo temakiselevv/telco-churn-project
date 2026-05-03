@@ -107,8 +107,11 @@ Docker автоматически:
 **4. Откройте Jupyter Notebook или вашу IDE**   
 
 **5. Создайте и активируйте виртуальное окружение**
+
+Рекомендуемая версия python для данного проекта - python 3.11.9
+
 ```console
-py -m venv venv
+py -3.11 -m venv venv       # вместо "3.11" напишите вашу версию python
 ```
 ```console
 # Linux/macOS
