@@ -206,4 +206,4 @@ Avg Churn Score       = средняя вероятность оттока по 
 Киселев Артём — Junior Data Analyst  
 GitHub: Tema Kiselev (temakiselevv) | Telegram: @tema_kiselev
 
-*Проект создан как демонстрация сильных навыков в data analysis, end-to-end ML, feature engineering, интерпретируемом машинном обучении и создании интерактивных дашбордов Power BI*
+*Проект создан как демонстрация сильных навыков в data analysis, end-to-end ML, feature engineering, интерпретируемом машинном обучении и создании интерактивных дашбордов Power BI.*
