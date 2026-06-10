@@ -158,7 +158,7 @@ pip install -r requirements.txt
 
 Поверх ML-модели разработана концепция production-grade BI-решения в **Power BI Desktop**.
 
-**Дашборд (3 страницы)**  
+#### Дашборд (3 страницы)  
 
 **Страница 1** - Overview  
 **Описание:** KPI-карточки: % оттока, кол-во клиентов в зоне риска, Expected Revenue Loss, средний churn score
