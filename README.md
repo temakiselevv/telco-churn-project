@@ -3,6 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 [![SQL](https://img.shields.io/badge/SQL-%20-blue?logo=postgresql)](https://www.postgresql.org/docs/current/tutorial.html)
+[![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?logo=docker&logoColor=white)](https://hub.docker.com/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-Used-success)](https://xgboost.readthedocs.io/)
 [![SHAP](https://img.shields.io/badge/SHAP-Interpretable-blue)](https://shap.readthedocs.io/)
@@ -46,11 +47,11 @@
 ## 🛠 Технологический стек
 
 - **База данных и SQL-аналитика**: PostgreSQL, SQL  
-- **Python и Machine Learning**: Python 3.8+, Pandas, NumPy, SciPy
+- **Визуализация**: Power BI Desktop, Plotly Express, Matplotlib
+- **Python**: Python 3.8+, Pandas, NumPy, SciPy
 - **Моделирование**: XGBoost, Scikit-learn
 - **Оптимизация**: Bayesian Optimization (`bayes_opt`)
 - **Интерпретируемость**: SHAP (TreeExplainer)
-- **Визуализация**: Plotly Express, Matplotlib
 - **Дополнительно**:  
   SQLAlchemy — подключение Python к PostgreSQL  
   JSON, Joblib — сохранение моделей  
@@ -152,6 +153,36 @@ pip install -r requirements.txt
 * Моделирование → XGBoost с Bayesian Optimization
 * Тюнинг порога для максимизации F1-score
 * Интерпретация с помощью SHAP (глобальная + локальная)
+
+## 📊 BI-слой и мониторинг оттока
+
+Поверх ML-модели разработана концепция production-grade BI-решения в **Power BI Desktop**.
+
+### Дашборд (3 страницы)
+
+Страница 1 - Overview
+  KPI-карточки: % оттока, кол-во клиентов в зоне риска, Expected Revenue Loss, средний churn score
+
+Страница 2 - Сегментный анализ
+  Scatter tenure vs churn probability, отток по типу контракта, матрица риска по сегментам
+  
+Страница 2 - At-Risk customers
+  Таблица с условным форматированием, фильтры по порогу вероятности и типу контракта
+
+### DAX-меры
+
+```dax
+Churn Rate %          = доля клиентов с Churn_Flag = 1
+At-Risk Count         = кол-во клиентов с Churn_Probability > 0.5
+Expected Revenue Loss = SUMX(Monthly_Charges * Churn_Probability)
+Avg Churn Score       = средняя вероятность оттока по выборке
+```
+
+### Ключевые инсайты дашборда
+
+- Клиенты с `High_Risk_Combination = 1` показывают **90-99% отток** в первые 24 месяца
+- Month-to-month контракты — **68% оттока** при 54% доле в базе
+- После 37+ месяцев даже высокорисковые клиенты уходят только в 28% случаев
 
 📌 Ключевые особенности проекта
 
