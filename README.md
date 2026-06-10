@@ -158,18 +158,18 @@ pip install -r requirements.txt
 
 Поверх ML-модели разработана концепция production-grade BI-решения в **Power BI Desktop**.
 
-### Дашборд (3 страницы)
+**Дашборд (3 страницы)**  
 
-Страница 1 - Overview
+Страница 1 - Overview  
   KPI-карточки: % оттока, кол-во клиентов в зоне риска, Expected Revenue Loss, средний churn score
 
-Страница 2 - Сегментный анализ
+Страница 2 - Сегментный анализ  
   Scatter tenure vs churn probability, отток по типу контракта, матрица риска по сегментам
-  
-Страница 2 - At-Risk customers
+
+Страница 2 - At-Risk customers  
   Таблица с условным форматированием, фильтры по порогу вероятности и типу контракта
 
-### DAX-меры
+**DAX-меры**
 
 ```dax
 Churn Rate %          = доля клиентов с Churn_Flag = 1
@@ -178,7 +178,7 @@ Expected Revenue Loss = SUMX(Monthly_Charges * Churn_Probability)
 Avg Churn Score       = средняя вероятность оттока по выборке
 ```
 
-### Ключевые инсайты дашборда
+**Ключевые инсайты дашборда**
 
 - Клиенты с `High_Risk_Combination = 1` показывают **90-99% отток** в первые 24 месяца
 - Month-to-month контракты — **68% оттока** при 54% доле в базе
